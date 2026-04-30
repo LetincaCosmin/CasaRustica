@@ -6,25 +6,37 @@
     <title>Casa Rustica | Meniu</title>
     <meta
       name="description"
-      content="Meniul online Casa Rustica – preparate tradiționale românești, grill, pizza, paste, pește, deserturi și băuturi."
+      content="Meniul online Casa Rustica – preparate tradiționale românești, grill, pizza, pește, deserturi și băuturi."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap"
+      rel="stylesheet"
     />
     <style>
       :root {
-        --bg: #0f0f0f;
-        --bg-2: #171717;
-        --card: rgba(255, 255, 255, 0.05);
-        --card-2: rgba(255, 255, 255, 0.03);
-        --line: rgba(255, 255, 255, 0.1);
-        --text: #f5f0e6;
-        --muted: #cdbfa6;
-        --accent: #c9a74d;
-        --accent-soft: rgba(201, 167, 77, 0.14);
-        --radius: 24px;
-        --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
-        --max: 1160px;
+        --parchment: #f7f0e3;
+        --ink: #2b1f0e;
+        --ink-soft: #4a3828;
+        --ink-muted: #7a6550;
+        --gold: #9c7a3c;
+        --gold-light: #c4a05a;
+        --gold-border: rgba(156, 122, 60, 0.3);
+        --rule: rgba(156, 122, 60, 0.22);
+        --card-bg: #faf5eb;
+        --card-border: rgba(156, 122, 60, 0.18);
+        --shadow-md: 0 8px 32px rgba(43, 31, 14, 0.12);
+        --shadow-lg: 0 20px 60px rgba(43, 31, 14, 0.18);
+        --max: 1100px;
+        --font-display: "Playfair Display", Georgia, serif;
+        --font-body: "Lora", Georgia, serif;
+        --font-accent: "Cormorant Garamond", Georgia, serif;
       }
 
-      * {
+      *,
+      *::before,
+      *::after {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
@@ -32,423 +44,817 @@
       html {
         scroll-behavior: smooth;
       }
+
       body {
-        font-family: Arial, Helvetica, sans-serif;
-        color: var(--text);
-        background:
-          radial-gradient(
-            circle at top,
-            rgba(201, 167, 77, 0.08),
-            transparent 30%
-          ),
-          linear-gradient(180deg, #161616 0%, #0d0d0d 100%);
-        line-height: 1.5;
+        font-family: var(--font-body);
+        background-color: var(--parchment);
+        color: var(--ink);
+        line-height: 1.6;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
       }
 
       a {
         color: inherit;
         text-decoration: none;
       }
+
       .container {
-        width: min(calc(100% - 28px), var(--max));
+        width: min(calc(100% - 32px), var(--max));
         margin: 0 auto;
       }
 
+      /* ─── HERO ─── */
       .hero {
-        padding: 24px 0 18px;
+        padding: 40px 0 0;
       }
 
-      .hero-box {
-        border: 1px solid var(--line);
+      .hero-inner {
         background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.07),
-          rgba(255, 255, 255, 0.03)
+          160deg,
+          #fff8ec 0%,
+          #f5e9d0 60%,
+          #ede0c5 100%
         );
-        backdrop-filter: blur(12px);
-        border-radius: 28px;
-        padding: 26px 22px;
-        box-shadow: var(--shadow);
+        border: 1px solid var(--gold-border);
+        border-radius: 2px;
+        box-shadow:
+          var(--shadow-lg),
+          inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        padding: 52px 44px 44px;
+        text-align: center;
+        position: relative;
+        animation: fadeUp 0.7s ease both;
+      }
+      .hero-inner::before,
+      .hero-inner::after {
+        content: "";
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        border-color: var(--gold-light);
+        border-style: solid;
+        opacity: 0.5;
+      }
+      .hero-inner::before {
+        top: 16px;
+        left: 16px;
+        border-width: 1px 0 0 1px;
+      }
+      .hero-inner::after {
+        top: 16px;
+        right: 16px;
+        border-width: 1px 1px 0 0;
+      }
+      .corner-bl {
+        position: absolute;
+        bottom: 16px;
+        left: 16px;
+        width: 60px;
+        height: 60px;
+        border: solid var(--gold-light);
+        border-width: 0 0 1px 1px;
+        opacity: 0.5;
+      }
+      .corner-br {
+        position: absolute;
+        bottom: 16px;
+        right: 16px;
+        width: 60px;
+        height: 60px;
+        border: solid var(--gold-light);
+        border-width: 0 1px 1px 0;
+        opacity: 0.5;
       }
 
-      .eyebrow {
-        display: inline-block;
-        color: var(--accent);
-        text-transform: uppercase;
-        letter-spacing: 0.18em;
-        font-size: 12px;
-        margin-bottom: 10px;
-      }
-
-      h1 {
-        font-size: clamp(34px, 8vw, 68px);
-        line-height: 0.95;
-        margin-bottom: 12px;
-      }
-
-      .lead {
-        max-width: 820px;
-        color: var(--muted);
-        font-size: 15px;
-      }
-
-      .hero-meta {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
-        margin-top: 20px;
-      }
-
-      .hero-meta div {
-        border: 1px solid rgba(201, 167, 77, 0.24);
-        background: var(--accent-soft);
-        border-radius: 16px;
-        padding: 14px;
+      .hero-eyebrow {
+        font-family: var(--font-accent);
         font-size: 14px;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 18px;
+        display: block;
+      }
+      .hero-logo {
+        font-family: var(--font-display);
+        font-size: clamp(48px, 10vw, 88px);
+        font-weight: 700;
+        line-height: 1;
+        color: var(--ink);
+        letter-spacing: -0.01em;
+        margin-bottom: 4px;
+      }
+      .hero-subtitle {
+        font-family: var(--font-accent);
+        font-style: italic;
+        font-size: clamp(18px, 3.5vw, 26px);
+        color: var(--ink-muted);
+        margin-bottom: 28px;
+        letter-spacing: 0.04em;
+      }
+      .hero-rule {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin: 0 auto 28px;
+        max-width: 460px;
+        color: var(--gold-light);
+      }
+      .hero-rule::before {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--gold-light));
+      }
+      .hero-rule::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, var(--gold-light), transparent);
+      }
+      .hero-rule span {
+        font-size: 20px;
+        line-height: 1;
+      }
+      .hero-desc {
+        font-family: var(--font-body);
+        font-size: 15px;
+        color: var(--ink-muted);
+        max-width: 560px;
+        margin: 0 auto 36px;
+        line-height: 1.7;
+      }
+      .hero-meta {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        border: 1px solid var(--rule);
+        border-radius: 2px;
+        overflow: hidden;
+        max-width: 680px;
+        margin: 0 auto;
+      }
+      .hero-meta-item {
+        flex: 1;
+        min-width: 160px;
+        padding: 16px 20px;
+        font-size: 13px;
+        color: var(--ink-soft);
+        font-family: var(--font-accent);
+        letter-spacing: 0.04em;
+        border-right: 1px solid var(--rule);
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        background: rgba(255, 255, 255, 0.4);
+      }
+      .hero-meta-item:last-child {
+        border-right: none;
+      }
+      .hero-meta-label {
+        font-size: 10px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-family: var(--font-accent);
       }
 
+      /* ─── NAV ─── */
       .nav {
         position: sticky;
         top: 0;
-        z-index: 40;
-        backdrop-filter: blur(14px);
-        background: rgba(10, 10, 10, 0.78);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        padding: 10px 0;
+        z-index: 50;
+        background: rgba(247, 240, 227, 0.94);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--rule);
+        box-shadow: 0 2px 16px rgba(43, 31, 14, 0.06);
       }
-
-      .nav-row {
+      .nav-inner {
         display: flex;
-        gap: 10px;
+        align-items: stretch;
         overflow-x: auto;
         scrollbar-width: none;
-      }
+        padding: 0 4px;
+        display: flex;
+        flex-wrap: nowrap; /* FOARTE IMPORTANT: împiedică categoriile să treacă pe rândul nou */
 
-      .nav-row::-webkit-scrollbar {
+        white-space: nowrap;
+      }
+      .nav-inner::-webkit-scrollbar {
         display: none;
       }
-
       .nav-link {
         white-space: nowrap;
-        padding: 10px 14px;
-        border-radius: 999px;
-        border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.04);
-        color: var(--muted);
-        font-size: 14px;
-      }
-
-      .nav-link:hover {
-        border-color: rgba(201, 167, 77, 0.3);
-        color: var(--text);
-      }
-
-      .section {
-        padding: 26px 0 0;
-      }
-
-      .section-title {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 16px;
-      }
-
-      .section-title h2 {
-        font-size: clamp(24px, 5vw, 36px);
-        line-height: 1;
-      }
-
-      .section-title span {
-        color: var(--accent);
-        font-size: 12px;
+        padding: 14px 16px;
+        font-family: var(--font-accent);
+        font-size: 13px;
+        letter-spacing: 0.14em;
         text-transform: uppercase;
-        letter-spacing: 0.16em;
+        color: var(--ink-muted);
+        border-bottom: 2px solid transparent;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+      }
+      .nav-link:hover {
+        color: var(--ink);
+        border-bottom-color: var(--gold);
       }
 
+      /* ─── SECTIONS ─── */
+      .section {
+        padding: 60px 0 0;
+      }
+      .section-header {
+        text-align: center;
+        margin-bottom: 36px;
+      }
+      .section-label {
+        font-family: var(--font-accent);
+        font-size: 12px;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        color: var(--gold);
+        display: block;
+        margin-bottom: 10px;
+      }
+      .section-title {
+        font-family: var(--font-display);
+        font-size: clamp(28px, 5vw, 44px);
+        font-weight: 600;
+        color: var(--ink);
+        line-height: 1.1;
+        margin-bottom: 8px;
+      }
+      .section-title em {
+        font-style: italic;
+        color: var(--ink-soft);
+      }
+      .section-rule {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 12px;
+        color: var(--gold-light);
+        font-size: 16px;
+      }
+      .section-rule::before {
+        content: "";
+        width: 60px;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--gold-light));
+      }
+      .section-rule::after {
+        content: "";
+        width: 60px;
+        height: 1px;
+        background: linear-gradient(90deg, var(--gold-light), transparent);
+      }
+
+      /* ─── GRID & CARDS ─── */
       .grid {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 18px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
       }
 
       .card {
-        border: 1px solid var(--line);
-        background: linear-gradient(180deg, var(--card), var(--card-2));
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 2px;
+        box-shadow: var(--shadow-md);
         overflow: hidden;
+        position: relative;
+        animation: fadeUp 0.5s ease both;
       }
-
+      .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          transparent 10%,
+          var(--gold-light) 50%,
+          transparent 90%
+        );
+        opacity: 0.4;
+      }
       .card-head {
-        padding: 16px 18px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-        background: rgba(255, 255, 255, 0.02);
+        padding: 18px 24px 14px;
+        border-bottom: 1px solid var(--rule);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.6),
+          rgba(255, 255, 255, 0)
+        );
+        display: flex;
+        align-items: center;
+        gap: 12px;
       }
-
+      .card-head::before {
+        content: "✦";
+        font-size: 10px;
+        color: var(--gold);
+        flex-shrink: 0;
+      }
       .card-head h3 {
-        font-size: 16px;
-        color: var(--accent);
+        font-family: var(--font-display);
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--ink-soft);
         letter-spacing: 0.08em;
         text-transform: uppercase;
       }
-
       .menu-list {
-        padding: 8px 18px 18px;
-        display: grid;
-        gap: 14px;
+        padding: 4px 24px 20px;
       }
 
+      /* ─── ITEMS ─── */
       .item {
         padding: 14px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        border-bottom: 1px solid rgba(156, 122, 60, 0.1);
       }
-
       .item:last-child {
-        border-bottom: 0;
+        border-bottom: none;
       }
-
       .topline {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        gap: 14px;
-        margin-bottom: 6px;
+        gap: 16px;
       }
-
-      .price {
-        color: var(--accent);
-        font-weight: 700;
-        white-space: nowrap;
-        font-size: 16px;
-      }
-
-      .de {
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 1.35;
-      }
-
-      .ro {
-        color: var(--muted);
-        font-size: 14px;
-        line-height: 1.45;
-        margin-top: 2px;
-      }
-
-      .sub {
-        color: #b9ac93;
-        font-size: 13px;
+      .dish-name {
+        font-family: var(--font-body);
+        font-weight: 500;
+        font-size: 15px;
+        color: var(--ink);
         line-height: 1.4;
+        flex: 1;
+      }
+      .price {
+        font-family: var(--font-display);
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--gold);
+        white-space: nowrap;
+        flex-shrink: 0;
+        letter-spacing: 0.02em;
+      }
+      .dish-ro {
+        font-family: var(--font-accent);
+        font-style: italic;
+        font-size: 14px;
+        color: var(--ink-muted);
+        margin-top: 3px;
+        line-height: 1.4;
+      }
+      .dish-sub {
+        font-family: var(--font-accent);
+        font-size: 13px;
+        color: var(--ink-muted);
         margin-top: 4px;
+        line-height: 1.45;
+        opacity: 0.85;
       }
 
-      .notice {
-        margin-top: 28px;
-        padding: 22px;
-        border: 1px solid rgba(201, 167, 77, 0.25);
-        border-radius: 24px;
+      /* Sub-header inside list */
+      .item.sub-header {
+        padding: 10px 0 2px;
+      }
+      .item.sub-header .dish-name {
+        font-family: var(--font-accent);
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 400;
+      }
+
+      /* ─── ALLERGEN TABLE ─── */
+      .allergen-section {
+        margin-top: 60px;
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 2px;
+        box-shadow: var(--shadow-md);
+        overflow: hidden;
+      }
+      .allergen-head {
+        padding: 20px 28px 16px;
+        border-bottom: 1px solid var(--rule);
         background: linear-gradient(
           180deg,
-          rgba(201, 167, 77, 0.14),
-          rgba(201, 167, 77, 0.05)
+          rgba(255, 255, 255, 0.6),
+          rgba(255, 255, 255, 0)
         );
-        text-align: center;
+        display: flex;
+        align-items: center;
+        gap: 12px;
       }
-
-      .notice h3 {
-        font-size: clamp(24px, 5vw, 34px);
+      .allergen-head::before {
+        content: "⚠";
+        font-size: 14px;
+        color: var(--gold);
+      }
+      .allergen-head h3 {
+        font-family: var(--font-display);
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--ink-soft);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .allergen-body {
+        padding: 20px 28px 28px;
+      }
+      .allergen-cols {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 32px;
+      }
+      .allergen-group {
+        margin-bottom: 20px;
+      }
+      .allergen-group-title {
+        font-family: var(--font-accent);
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 10px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid var(--rule);
+      }
+      .allergen-item {
+        display: flex;
+        gap: 10px;
+        padding: 5px 0;
+        border-bottom: 1px solid rgba(156, 122, 60, 0.07);
+        font-size: 13px;
+        line-height: 1.4;
+      }
+      .allergen-item:last-child {
+        border-bottom: none;
+      }
+      .allergen-code {
+        font-family: var(--font-display);
+        font-weight: 600;
+        color: var(--gold);
+        min-width: 26px;
+        flex-shrink: 0;
+      }
+      .allergen-desc {
+        font-family: var(--font-accent);
+        color: var(--ink-soft);
+        font-size: 14px;
+      }
+      .allergen-notice {
+        margin-top: 20px;
+        padding: 16px 20px;
+        background: rgba(156, 122, 60, 0.06);
+        border: 1px solid var(--rule);
+        border-radius: 2px;
+      }
+      .allergen-notice p {
+        font-family: var(--font-accent);
+        font-size: 14px;
+        color: var(--ink-muted);
+        line-height: 1.6;
         margin-bottom: 8px;
       }
+      .allergen-notice p:last-child {
+        margin-bottom: 0;
+      }
 
+      /* ─── NOTICE & FOOTER ─── */
+      .notice {
+        margin-top: 60px;
+        padding: 40px 32px;
+        background: linear-gradient(135deg, #fff8ec, #f5e9d0);
+        border: 1px solid var(--gold-border);
+        border-radius: 2px;
+        text-align: center;
+        box-shadow: var(--shadow-md);
+        position: relative;
+      }
+      .notice::before {
+        content: "";
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        width: 50px;
+        height: 50px;
+        border: solid var(--gold-light);
+        border-width: 1px 0 0 1px;
+        opacity: 0.4;
+      }
+      .notice::after {
+        content: "";
+        position: absolute;
+        bottom: 12px;
+        right: 12px;
+        width: 50px;
+        height: 50px;
+        border: solid var(--gold-light);
+        border-width: 0 1px 1px 0;
+        opacity: 0.4;
+      }
+      .notice h3 {
+        font-family: var(--font-display);
+        font-size: clamp(20px, 4vw, 28px);
+        color: var(--ink);
+        margin-bottom: 10px;
+      }
       .notice p {
-        color: var(--muted);
-        max-width: 760px;
+        font-family: var(--font-body);
+        font-size: 15px;
+        color: var(--ink-muted);
+        max-width: 520px;
         margin: 0 auto;
+        line-height: 1.7;
       }
 
       footer {
-        padding: 28px 0 34px;
-        color: #9f9581;
-        font-size: 13px;
+        padding: 40px 0 48px;
         text-align: center;
       }
+      .footer-logo {
+        font-family: var(--font-display);
+        font-size: 22px;
+        font-weight: 600;
+        color: var(--ink-soft);
+        margin-bottom: 8px;
+      }
+      .footer-rule {
+        width: 60px;
+        height: 1px;
+        background: var(--rule);
+        margin: 16px auto;
+      }
+      .footer-copy {
+        font-family: var(--font-accent);
+        font-size: 12px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--ink-muted);
+      }
 
-      @media (max-width: 920px) {
+      /* ─── RESPONSIVE ─── */
+      @media (max-width: 860px) {
         .grid,
-        .hero-meta {
+        .allergen-cols {
           grid-template-columns: 1fr;
+        }
+        .hero-meta {
+          flex-direction: column;
+        }
+        .hero-meta-item {
+          border-right: none;
+          border-bottom: 1px solid var(--rule);
+        }
+        .hero-meta-item:last-child {
+          border-bottom: none;
+        }
+      }
+      @media (max-width: 560px) {
+        .hero-inner {
+          padding: 36px 20px 28px;
+        }
+        .hero-inner::before,
+        .hero-inner::after,
+        .corner-bl,
+        .corner-br {
+          width: 36px;
+          height: 36px;
+        }
+        .card-head,
+        .menu-list,
+        .allergen-body {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+        .notice {
+          padding: 28px 20px;
         }
       }
 
-      @media (max-width: 560px) {
-        .hero-box,
-        .card,
-        .notice {
-          border-radius: 20px;
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
         }
-        .hero-box {
-          padding: 20px 16px;
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
-        .menu-list {
-          padding: 6px 14px 14px;
+      }
+
+      .nav-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+
+      /* Afișăm săgețile doar pe ecrane mai mari unde scroll-ul e anevoios */
+      @media (min-width: 860px) {
+        .nav-arrow {
+          display: block;
         }
-        .card-head {
-          padding: 14px;
-        }
-        .topline {
-          gap: 10px;
-        }
-        .de {
-          font-size: 15px;
-        }
-        .ro,
-        .sub {
-          font-size: 13px;
-        }
-        .price {
-          font-size: 15px;
-        }
+      }
+
+      .nav-inner {
+        scroll-behavior: smooth; /* Asigură un scroll lin */
+      }
+
+      /* Containerul trebuie să permită butoanelor să stea deasupra */
+      .nav-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Centrează meniul pe ecrane mari */
+        width: 100%;
+      }
+
+      /* Elementul care face scroll efectiv */
+      #navInner {
+        display: flex !important; /* Forțează așezarea pe orizontală */
+        flex-wrap: nowrap !important; /* INTERZICE trecerea pe rândul doi */
+        overflow-x: auto !important; /* Activează scroll-ul */
+        scroll-behavior: smooth;
+        gap: 10px;
+        padding: 0 10px;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      #navInner::-webkit-scrollbar {
+        display: none; /* Ascunde bara de scroll inestetică */
       }
     </style>
   </head>
   <body>
+    <!-- ══════════ HERO ══════════ -->
     <header class="hero">
       <div class="container">
-        <div class="hero-box">
-          <div class="eyebrow">Restaurant tradițional românesc</div>
-          <h1>Casa Rustica</h1>
-          <p class="lead">
-            Meniu online bilingv, optimizat pentru telefon. Scanează codul QR de
-            pe masă și vezi rapid preparatele, deserturile și băuturile.
+        <div class="hero-inner">
+          <div class="corner-bl"></div>
+          <div class="corner-br"></div>
+          <span class="hero-eyebrow"
+            >Restaurant tradițional românesc · Dachau</span
+          >
+          <div class="hero-logo">Casa Rustica</div>
+          <div class="hero-subtitle">Gust autentic, servit cu inimă</div>
+          <div class="hero-rule"><span>✦</span></div>
+          <p class="hero-desc">
+            Preparate tradiționale românești gătite cu rețete de acasă, servite
+            într-un cadru cald și primitor. Meniu bilingv român–german,
+            optimizat pentru telefonul dumneavoastră.
           </p>
           <div class="hero-meta">
-            <div>📍 Schleißheimer Str. 61, 85221 Dachau</div>
-            <div>📱 Meniu digital pentru scanare QR</div>
-            <div>🍽️ Preparat tradițional, servit modern</div>
+            <div class="hero-meta-item">
+              <span class="hero-meta-label">Adresă</span>
+              Schleißheimer Str. 61, 85221 Dachau
+            </div>
+            <div class="hero-meta-item">
+              <span class="hero-meta-label">Meniu digital</span>
+              Scanează codul QR de pe masă
+            </div>
+            <div class="hero-meta-item">
+              <span class="hero-meta-label">Bucătărie</span>
+              Tradițională · Grill · Pizza
+            </div>
           </div>
         </div>
       </div>
     </header>
 
+    <!-- ══════════ NAV ══════════ -->
     <nav class="nav">
-      <div class="container nav-row">
-        <a class="nav-link" href="#aperitive">Aperitive</a>
-        <a class="nav-link" href="#ciorbe">Ciorbe</a>
-        <a class="nav-link" href="#traditionale">Tradiționale</a>
-        <a class="nav-link" href="#gratar">Grătar</a>
-        <a class="nav-link" href="#snitele">Șnițele</a>
-        <a class="nav-link" href="#peste">Pește</a>
-        <a class="nav-link" href="#pizza-paste">Pizza & Paste</a>
-        <a class="nav-link" href="#salate">Salate</a>
-        <a class="nav-link" href="#garnituri">Garnituri</a>
-        <a class="nav-link" href="#desert">Desert</a>
-        <a class="nav-link" href="#bauturi">Băuturi</a>
-        <a class="nav-link" href="#cafea">Cafea</a>
+      <div class="container nav-wrapper">
+        <div class="nav-inner">
+          <a class="nav-link" href="#aperitive">Aperitive</a>
+          <a class="nav-link" href="#ciorbe">Ciorbe</a>
+          <a class="nav-link" href="#traditionale">Tradiționale</a>
+          <a class="nav-link" href="#specialitate">Specialitate</a>
+          <a class="nav-link" href="#snitele">Șnițele</a>
+          <a class="nav-link" href="#gratar">Grătar</a>
+          <a class="nav-link" href="#pizza">Pizza</a>
+          <a class="nav-link" href="#peste">Pește</a>
+          <a class="nav-link" href="#garnituri">Garnituri</a>
+          <a class="nav-link" href="#salate">Salate</a>
+          <a class="nav-link" href="#desert">Desert</a>
+          <a class="nav-link" href="#bauturi">Băuturi</a>
+          <a class="nav-link" href="#cafea">Cafea</a>
+        </div>
       </div>
     </nav>
 
     <main class="container">
+      <!-- ══════════ APERITIVE ══════════ -->
       <section class="section" id="aperitive">
-        <div class="section-title">
-          <h2>Vorspeisen / Aperitive</h2>
-          <span>Start bun</span>
+        <div class="section-header">
+          <span class="section-label">Vorspeisen</span>
+          <h2 class="section-title">Aperitive</h2>
+          <div class="section-rule"><span>✦</span></div>
         </div>
         <div class="grid">
           <article class="card">
-            <div class="card-head"><h3>Aperitive</h3></div>
+            <div class="card-head"><h3>Aperitive calde & reci</h3></div>
             <div class="menu-list">
               <div class="item">
                 <div class="topline">
-                  <div class="de">
+                  <div class="dish-name">
                     Gegrillter Auberginensalat serviert mit hausgemachtem Brot
                   </div>
-                  <div class="price">10,90 €</div>
+                  <div class="price">11,90 €</div>
                 </div>
-                <div class="ro">
+                <div class="dish-ro">
                   Salată de vinete coapte pe grătar, servită cu pâine de casă
                   (A)
                 </div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">
+                  <div class="dish-name">
                     Hausgemachter Fischrogenaufstrich serviert mit frischem Brot
                   </div>
-                  <div class="price">11,90 €</div>
+                  <div class="price">12,90 €</div>
                 </div>
-                <div class="ro">
+                <div class="dish-ro">
                   Icre de casă, servite cu pâine proaspătă (A,D)
                 </div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">
+                  <div class="dish-name">
                     Hausgemachte Zacusca serviert mit hausgemachtem Brot
                   </div>
-                  <div class="price">10,90 €</div>
+                  <div class="price">11,90 €</div>
                 </div>
-                <div class="ro">
+                <div class="dish-ro">
                   Zacuscă de casă, servită cu pâine de casă (A)
                 </div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">
+                  <div class="dish-name">
                     Panierter Käse (2 Stk.) serviert mit Essiggurken
                   </div>
                   <div class="price">12,90 €</div>
                 </div>
-                <div class="ro">
+                <div class="dish-ro">
                   Cașcaval pane (2 buc.), servit cu castraveți murați (A,C,G)
                 </div>
               </div>
             </div>
           </article>
           <article class="card">
-            <div class="card-head"><h3>Specialități reci</h3></div>
+            <div class="card-head"><h3>Specialități</h3></div>
             <div class="menu-list">
               <div class="item">
                 <div class="topline">
-                  <div class="de">
-                    Rumänisches Degustationstrio „Casa Rustica“
+                  <div class="dish-name">
+                    Rumänisches Degustationstrio „Casa Rustica"
                   </div>
-                  <div class="price">13,90 €</div>
+                  <div class="price">14,90 €</div>
                 </div>
-                <div class="sub">
-                  (Auberginensalat, Zacusca, Bohnencreme, hausgemachtes Brot)
+                <div class="dish-sub">
+                  (Auswahl an frisch zubereiteten Salaten)
                 </div>
-                <div class="ro">Trio românesc „Casa Rustica”</div>
-                <div class="sub">
-                  (salată de vinete, zacuscă, fasole bătută, pâine de casă) (A)
+                <div class="dish-ro">Trio românesc „Casa Rustica"</div>
+                <div class="dish-sub">
+                  (Selecția din salatele făcute proaspăt) (A)
                 </div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">
+                  <div class="dish-name">
                     Bohnencreme mit Knoblauch und karamellisierten Zwiebeln
                   </div>
-                  <div class="price">9,90 €</div>
+                  <div class="price">10,90 €</div>
                 </div>
-                <div class="ro">
+                <div class="dish-ro">
                   Fasole bătută cu usturoi și ceapă caramelizată (A)
                 </div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Bauernplatte „Casa Rustica“</div>
-                  <div class="price">14,90 €</div>
+                  <div class="dish-name">Bauernplatte „Casa Rustica"</div>
+                  <div class="price">21,90 €</div>
                 </div>
-                <div class="sub">
+                <div class="dish-sub">
                   (Traditionellen Wurstspezialitäten, Käse, Grieben,
                   Schweineschwarte, Schinken, rote Zwiebeln, Gurken, Tomaten,
                   Oliven)
                 </div>
-                <div class="ro">Gustare țărănească „Casa Rustica”</div>
-                <div class="sub">
+                <div class="dish-ro">Gustare țărănească „Casa Rustica"</div>
+                <div class="dish-sub">
                   (Mezeluri tradiționale, brânză, jumări, șorici, șuncă, ceapă
-                  roșie, castraveți, roșii, măsline) (A)
+                  roșie, castraveți, roșii, măsline) (1,3,7,A,G)
                 </div>
               </div>
             </div>
@@ -456,10 +862,12 @@
         </div>
       </section>
 
+      <!-- ══════════ CIORBE ══════════ -->
       <section class="section" id="ciorbe">
-        <div class="section-title">
-          <h2>Suppen / Ciorbe</h2>
-          <span>Ca acasă</span>
+        <div class="section-header">
+          <span class="section-label">Suppen</span>
+          <h2 class="section-title">Ciorbe <em>& Supe</em></h2>
+          <div class="section-rule"><span>✦</span></div>
         </div>
         <div class="grid">
           <article class="card">
@@ -467,31 +875,24 @@
             <div class="menu-list">
               <div class="item">
                 <div class="topline">
-                  <div class="de">Rinderkuttelsuppe</div>
+                  <div class="dish-name">Rinderkuttelsuppe</div>
+                  <div class="price">11,90 €</div>
+                </div>
+                <div class="dish-ro">Ciorbă de burtă (A,C,G,I)</div>
+              </div>
+              <div class="item">
+                <div class="topline">
+                  <div class="dish-name">Hühnersuppe</div>
                   <div class="price">10,90 €</div>
                 </div>
-                <div class="ro">Ciorbă de burtă (A,G)</div>
+                <div class="dish-ro">Ciorbă de cocoș (A,I)</div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Hühnersuppe</div>
-                  <div class="price">9,90 €</div>
+                  <div class="dish-name">Suppe der Woche</div>
+                  <div class="price">10,90 €</div>
                 </div>
-                <div class="ro">Ciorbă de cocoș (A)</div>
-              </div>
-              <div class="item">
-                <div class="topline">
-                  <div class="de">Suppe der Woche</div>
-                  <div class="price">8,90 €</div>
-                </div>
-                <div class="ro">Ciorba săptămânii (A)</div>
-              </div>
-              <div class="item">
-                <div class="topline">
-                  <div class="de">Cremesuppe</div>
-                  <div class="price">7,90 €</div>
-                </div>
-                <div class="ro">Supă cremă (A,G)</div>
+                <div class="dish-ro">Ciorba săptămânii (alergenii variază)</div>
               </div>
             </div>
           </article>
@@ -500,41 +901,43 @@
             <div class="menu-list">
               <div class="item">
                 <div class="topline">
-                  <div class="de">Sahne</div>
+                  <div class="dish-name">Sahne</div>
                   <div class="price">1,50 €</div>
                 </div>
-                <div class="ro">Smântână (G)</div>
+                <div class="dish-ro">Smântână (G)</div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Peperoni</div>
+                  <div class="dish-name">Peperoni</div>
                   <div class="price">1,00 €</div>
                 </div>
-                <div class="ro">Ardei iute</div>
+                <div class="dish-ro">Ardei iute</div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Kleiner Brotkorb</div>
+                  <div class="dish-name">Kleiner Brotkorb</div>
                   <div class="price">3,50 €</div>
                 </div>
-                <div class="ro">Coș mic (A)</div>
+                <div class="dish-ro">Coș mic (A,F)</div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Großer Brotkorb</div>
+                  <div class="dish-name">Großer Brotkorb</div>
                   <div class="price">4,90 €</div>
                 </div>
-                <div class="ro">Coș mare (A)</div>
+                <div class="dish-ro">Coș mare (A,F)</div>
               </div>
             </div>
           </article>
         </div>
       </section>
 
+      <!-- ══════════ TRADIȚIONALE ══════════ -->
       <section class="section" id="traditionale">
-        <div class="section-title">
-          <h2>Traditionelle Gerichte / Preparate tradiționale</h2>
-          <span>Semnătură</span>
+        <div class="section-header">
+          <span class="section-label">Traditionelle Gerichte</span>
+          <h2 class="section-title">Preparate <em>Tradiționale</em></h2>
+          <div class="section-rule"><span>✦</span></div>
         </div>
         <div class="grid">
           <article class="card">
@@ -542,54 +945,57 @@
             <div class="menu-list">
               <div class="item">
                 <div class="topline">
-                  <div class="de">
+                  <div class="dish-name">
                     Krautwickel mit Polenta, Crème fraîche und Peperoncini
                   </div>
-                  <div class="price">18,90 €</div>
+                  <div class="price">19,90 €</div>
                 </div>
-                <div class="ro">
-                  Sarmale cu mămăliguță, smântână și ardei iute (G)
+                <div class="dish-ro">
+                  Sarmale cu mămăliguță, smântână și ardei iute (A,G,I)
                 </div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">
+                  <div class="dish-name">
                     Gebratene Schweinespezialität nach rumänischer Art
+                  </div>
+                  <div class="price">19,90 €</div>
+                </div>
+                <div class="dish-sub">
+                  (mit Polenta, Ei, Käse und eingelegtem Gemüse)
+                </div>
+                <div class="dish-ro">
+                  Pomana porcului cu mămăligă, ou, brânză și murături (C,G)
+                </div>
+              </div>
+              <div class="item">
+                <div class="topline">
+                  <div class="dish-name">
+                    Knusprige Schweinshaxe aus dem Ofen
+                  </div>
+                  <div class="price">26,90 €</div>
+                </div>
+                <div class="dish-sub">
+                  mit Beilage nach Wahl · ca. 1 kg · Bohnen / geschmortes Kraut
+                  / Kartoffeln
+                </div>
+                <div class="dish-ro">
+                  Ciolan de porc crocant la cuptor, cu garnitură la alegere
+                </div>
+                <div class="dish-sub">
+                  (aprox. 1 kg – porție ideală pentru 1–2 persoane) · fasole /
+                  varză călită / cartofi (1,3)
+                </div>
+              </div>
+              <div class="item">
+                <div class="topline">
+                  <div class="dish-name">
+                    Gefüllte Paprika in Tomatensauce mit Crème fraîche
                   </div>
                   <div class="price">18,90 €</div>
                 </div>
-                <div class="sub">
-                  (mit Polenta, Ei, Käse und eingelegtem Gemüse)
-                </div>
-                <div class="ro">
-                  Pomana porcului cu mămăligă, ou, brânză și murături
-                </div>
-              </div>
-              <div class="item">
-                <div class="topline">
-                  <div class="de">Knusprige Schweinshaxe aus dem Ofen</div>
-                  <div class="price">26,90 €</div>
-                </div>
-                <div class="sub">
-                  mit Beilage nach Wahl (ca. 1 kg – große Portion, ideal für 1–2
-                  Personen) · (Bohnen / geschmortes Kraut / Kartoffeln)
-                </div>
-                <div class="ro">
-                  Ciolan de porc crocant la cuptor, cu garnitură la alegere
-                </div>
-                <div class="sub">
-                  (aprox. 1 kg – porție mare, ideală pentru 1–2 persoane) ·
-                  (fasole / varză călită / cartofi)
-                </div>
-              </div>
-              <div class="item">
-                <div class="topline">
-                  <div class="de">Gefüllte Paprika in Tomatensauce</div>
-                  <div class="price">18,90 €</div>
-                </div>
-                <div class="sub">mit Polenta und Crème fraîche</div>
-                <div class="ro">
-                  Ardei umpluți în sos de roșii, cu mămăligă și smântână (G)
+                <div class="dish-ro">
+                  Ardei umpluți în sos de roșii cu smântână (G,I)
                 </div>
               </div>
             </div>
@@ -599,35 +1005,153 @@
             <div class="menu-list">
               <div class="item">
                 <div class="topline">
-                  <div class="de">Polenta mit Käse und Crème fraîche</div>
+                  <div class="dish-name">
+                    Polenta mit Käse und Crème fraîche
+                  </div>
                   <div class="price">13,90 €</div>
                 </div>
-                <div class="ro">Mămăligă cu brânză și smântână (G)</div>
+                <div class="dish-ro">Mămăligă cu brânză și smântână (G)</div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Bulz (Polenta mit Käse, Ei und Bacon)</div>
-                  <div class="price">16,90 €</div>
+                  <div class="dish-name">
+                    Gebratene Hühnerleber mit Zwiebeln, Polenta und
+                    Knoblauchsauce
+                  </div>
+                  <div class="price">19,90 €</div>
                 </div>
-                <div class="ro">Bulz cu ou, brânză și bacon (C,G)</div>
-              </div>
-              <div class="item">
-                <div class="topline">
-                  <div class="de">Gebratene Hühnerleber</div>
-                  <div class="price">16,90 €</div>
+                <div class="dish-ro">
+                  Ficăței de pui cu ceapă, mămăligă și mujdei (I)
                 </div>
-                <div class="sub">mit Polenta und Knoblauchsauce</div>
-                <div class="ro">Ficăței de pui cu mămăligă și mujdei</div>
               </div>
             </div>
           </article>
         </div>
       </section>
 
+      <!-- ══════════ SPECIALITATE ══════════ -->
+      <section class="section" id="specialitate">
+        <div class="section-header">
+          <span class="section-label">Hausspezialität</span>
+          <h2 class="section-title">Specialitatea <em>Casei</em></h2>
+          <div class="section-rule"><span>✦</span></div>
+        </div>
+        <div class="grid">
+          <article
+            class="card"
+            style="
+              grid-column: 1 / -1;
+              max-width: 600px;
+              margin: 0 auto;
+              width: 100%;
+            "
+          >
+            <div class="card-head"><h3>Specialitatea casei</h3></div>
+            <div class="menu-list">
+              <div class="item">
+                <div class="topline">
+                  <div class="dish-name">
+                    Pikante Haidukenpfanne (mit Hähnchenbrust, Schweinefleisch
+                    und Gemüse)
+                  </div>
+                  <div class="price">21,90 €</div>
+                </div>
+                <div class="dish-ro">
+                  Tigaie haiducească picantă (cu piept de pui, carne de porc și
+                  legume proaspete)
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ══════════ ȘNIȚELE ══════════ -->
+      <section class="section" id="snitele">
+        <div class="section-header">
+          <span class="section-label">Schnitzel</span>
+          <h2 class="section-title">Șnițele</h2>
+          <div class="section-rule"><span>✦</span></div>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="card-head"><h3>Șnițele clasice</h3></div>
+            <div class="menu-list">
+              <div class="item">
+                <div class="topline">
+                  <div class="dish-name">
+                    Schweineschnitzel mit Pommes frites XL
+                  </div>
+                  <div class="price">16,90 €</div>
+                </div>
+                <div class="dish-ro">
+                  Șnițel de porc cu cartofi prăjiți (A,C)
+                </div>
+              </div>
+              <div class="item">
+                <div class="topline">
+                  <div class="dish-name">
+                    Hähnchenschnitzel mit Pommes frites XL
+                  </div>
+                  <div class="price">18,90 €</div>
+                </div>
+                <div class="dish-ro">
+                  Șnițel de pui cu cartofi prăjiți (A,C)
+                </div>
+              </div>
+              <div class="item">
+                <div class="topline">
+                  <div class="dish-name">
+                    Schnitzel „Casa Rustica" XL mit Knoblauchcreme
+                  </div>
+                  <div class="price">19,90 €</div>
+                </div>
+                <div class="dish-ro">Șnițel Casa Rustica XL (A,C,G)</div>
+              </div>
+              <div class="item">
+                <div class="topline">
+                  <div class="dish-name">
+                    Kinder Schnitzel mit Pommes frites
+                  </div>
+                  <div class="price">11,90 €</div>
+                </div>
+                <div class="dish-ro">
+                  Șnițel pentru copii cu cartofi prăjiți (A,C)
+                </div>
+              </div>
+            </div>
+          </article>
+          <!-- Sosuri -->
+          <article class="card">
+            <div class="card-head"><h3>Sosuri</h3></div>
+            <div class="menu-list">
+              <div class="item">
+                <div class="topline">
+                  <div class="dish-name">
+                    Knoblauchcreme / Knoblauchsauce (traditionell)
+                  </div>
+                  <div class="price">2,50 €</div>
+                </div>
+                <div class="dish-ro">Cremă de usturoi / Mujdei</div>
+              </div>
+              <div class="item">
+                <div class="topline">
+                  <div class="dish-name">Ketchup / Mayonnaise / Senf</div>
+                  <div class="price">1,00 €</div>
+                </div>
+                <div class="dish-ro">Ketchup / Maioneză / Muștar</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ══════════ GRĂTAR ══════════ -->
       <section class="section" id="gratar">
-        <div class="section-title">
-          <h2>Grill / Grătar</h2>
-          <span>Foc și gust</span>
+        <div class="section-header">
+          <span class="section-label">Grill</span>
+          <h2 class="section-title">De pe <em>Grătar</em></h2>
+          <div class="section-rule"><span>✦</span></div>
         </div>
         <div class="grid">
           <article class="card">
@@ -635,42 +1159,48 @@
             <div class="menu-list">
               <div class="item">
                 <div class="topline">
-                  <div class="de">
+                  <div class="dish-name">
                     Gegrillte Hähnchenbrust mit frisch frittierten Kartoffeln
                   </div>
                   <div class="price">18,90 €</div>
                 </div>
-                <div class="ro">Piept de pui la grătar cu cartofi prăjiți</div>
+                <div class="dish-ro">
+                  Piept de pui la grătar cu cartofi prăjiți
+                </div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">
+                  <div class="dish-name">
                     Hähnchenkeule mit frisch frittierten Kartoffeln
                   </div>
                   <div class="price">18,90 €</div>
                 </div>
-                <div class="ro">
+                <div class="dish-ro">
                   Pulpa de pui dezosată servită cu cartofi prăjiți
                 </div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">
+                  <div class="dish-name">
                     Gegrillter Schweinenacken mit frisch frittierten Kartoffeln
                   </div>
                   <div class="price">18,90 €</div>
                 </div>
-                <div class="ro">Ceafă de porc la grătar cu cartofi prăjiți</div>
+                <div class="dish-ro">
+                  Ceafă de porc la grătar cu cartofi prăjiți
+                </div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">
+                  <div class="dish-name">
                     Mititei (rumänische Spezialität) mit frisch frittierten
                     Kartoffeln und Senf
                   </div>
-                  <div class="price">16,90 €</div>
+                  <div class="price">17,90 €</div>
                 </div>
-                <div class="ro">Mititei cu cartofi prăjiți și muștar</div>
+                <div class="dish-ro">
+                  Mititei cu cartofi prăjiți și muștar (J)
+                </div>
               </div>
             </div>
           </article>
@@ -679,232 +1209,129 @@
             <div class="menu-list">
               <div class="item">
                 <div class="topline">
-                  <div class="de">
+                  <div class="dish-name">
                     Hausgemachte Würstchen mit frisch frittierten Kartoffeln und
                     Knoblauchsauce
                   </div>
                   <div class="price">16,90 €</div>
                 </div>
-                <div class="ro">
-                  Cârnați de casă cu cartofi prăjiți și mujdei
+                <div class="dish-ro">
+                  Cârnați de casă cu cartofi prăjiți și mujdei (1,3,7)
                 </div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Lammwürstchen mit Knoblauchsauce</div>
-                  <div class="price">18,90 €</div>
-                </div>
-                <div class="ro">Cârnați de oaie cu mujdei</div>
-              </div>
-              <div class="item">
-                <div class="topline">
-                  <div class="de">
+                  <div class="dish-name">
                     Gegrillte Lamm-Pastrami mit Polenta und Knoblauchsauce
                   </div>
                   <div class="price">25,90 €</div>
                 </div>
-                <div class="ro">Pastramă de oaie cu mămăligă și mujdei</div>
+                <div class="dish-ro">
+                  Pastramă de oaie cu mămăligă și mujdei (1,3)
+                </div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">
+                  <div class="dish-name">
                     Gegrilltes Lammkotelett mit Knoblauchsauce
                   </div>
-                  <div class="price">27,90 €</div>
+                  <div class="price">26,90 €</div>
                 </div>
-                <div class="ro">Cotlet de miel cu mujdei</div>
+                <div class="dish-ro">Cotlet de miel cu mujdei</div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Haiducken Grillteller</div>
+                  <div class="dish-name">Haiducken Grillteller</div>
                   <div class="price">26,90 €</div>
                 </div>
-                <div class="sub">
+                <div class="dish-sub">
                   (verschiedene Fleischspezialitäten vom Grill)
                 </div>
-                <div class="ro">Mix grill haiducesc</div>
+                <div class="dish-ro">Mix grill haiducesc (1,3,7,J)</div>
               </div>
             </div>
           </article>
         </div>
       </section>
 
-      <section class="section" id="specialitatea-casei">
-        <div class="section-title">
-          <h2>Hausspezialität / Specialitatea casei</h2>
-          <span>Recomandate</span>
+      <!-- ══════════ PIZZA ══════════ -->
+      <section class="section" id="pizza">
+        <div class="section-header">
+          <span class="section-label">Pizza 32 cm</span>
+          <h2 class="section-title">Pizza</h2>
+          <div class="section-rule"><span>✦</span></div>
         </div>
         <div class="grid">
           <article class="card">
-            <div class="card-head"><h3>Specialitatea casei</h3></div>
+            <div class="card-head"><h3>Pizza</h3></div>
             <div class="menu-list">
               <div class="item">
                 <div class="topline">
-                  <div class="de">
-                    Zart geschmorte Putenkeule in aromatischer Tomatensauce
-                  </div>
-                  <div class="price">26,90 €</div>
+                  <div class="dish-name">Pizza Margherita</div>
+                  <div class="price">10,00 €</div>
                 </div>
-                <div class="sub">mit Kartoffelpüree</div>
-                <div class="ro">
-                  Pulpă fragedă de curcan, gătită lent în sos de roșii aromat,
-                  cu piure de cartofi
+                <div class="dish-ro">Pizza Margherita (A,G)</div>
+              </div>
+              <div class="item">
+                <div class="topline">
+                  <div class="dish-name">Pizza Rustica (rumänische Art)</div>
+                  <div class="price">14,90 €</div>
+                </div>
+                <div class="dish-sub">
+                  mit Würstchen, Zwiebeln, Champignons, Paprika, Bacon
+                </div>
+                <div class="dish-ro">
+                  Pizza rustica (românească) – cârnați, ceapă, ciuperci, ardei,
+                  bacon (A,G,1,3)
                 </div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">
-                    Pikante Haidukenpfanne (mit Hähnchenbrust, Schweinefleisch
-                    und Gemüse)
-                  </div>
-                  <div class="price">19,90 €</div>
+                  <div class="dish-name">Pizza Funghi</div>
+                  <div class="price">12,90 €</div>
                 </div>
-                <div class="ro">Tigaie haiducească picantă</div>
-                <div class="sub">
-                  (cu piept de pui, carne de porc și legume proaspete)
-                </div>
+                <div class="dish-ro">Pizza Funghi (A,G)</div>
               </div>
             </div>
           </article>
-          <article class="card">
-            <div class="card-head"><h3>Observație</h3></div>
-            <div class="menu-list">
-              <div class="item" style="border-bottom: 0">
-                <div class="de">
-                  Meniu bilingv, gândit pentru scanare rapidă.
-                </div>
-                <div class="ro">
-                  Poți folosi această pagină direct pe GitHub Pages și apoi să
-                  generezi codul QR pentru fiecare masă.
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
 
-      <section class="section" id="snitele">
-        <div class="section-title">
-          <h2>Schnitzel / Șnițele</h2>
-          <span>Clasic</span>
-        </div>
-        <div class="grid">
-          <article class="card">
-            <div class="card-head"><h3>Șnițele</h3></div>
+          <!-- ══════════ PEȘTE ══════════ -->
+          <article class="card" id="peste">
+            <div class="card-head"><h3>Pește / Fisch</h3></div>
             <div class="menu-list">
               <div class="item">
                 <div class="topline">
-                  <div class="de">Schweineschnitzel mit Pommes frites</div>
-                  <div class="price">16,90 €</div>
-                </div>
-                <div class="ro">Șnițel de porc cu cartofi prăjiți (A,C)</div>
-              </div>
-              <div class="item">
-                <div class="topline">
-                  <div class="de">Hähnchenschnitzel mit Pommes frites</div>
-                  <div class="price">18,90 €</div>
-                </div>
-                <div class="ro">Șnițel de pui cu cartofi prăjiți (A,C)</div>
-              </div>
-              <div class="item">
-                <div class="topline">
-                  <div class="de">
-                    Schnitzel „Casa Rustica“ XXL (überbacken) mit Pommes frites
+                  <div class="dish-name">
+                    Gebratener Fisch mit Polenta und Knoblauchsauce
                   </div>
                   <div class="price">19,90 €</div>
                 </div>
-                <div class="ro">Șnițel Casa Rustica gratinat XXL (A,C,G)</div>
-              </div>
-              <div class="item">
-                <div class="topline">
-                  <div class="de">Kinder Schnitzel mit Pommes frites</div>
-                  <div class="price">11,90 €</div>
-                </div>
-                <div class="ro">
-                  Șnițel pentru copii cu cartofi prăjiți (A,C)
-                </div>
-              </div>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-head"><h3>Pentru toate vârstele</h3></div>
-            <div class="menu-list">
-              <div class="item" style="border-bottom: 0">
-                <div class="de">
-                  Preparatele sunt afișate într-un format clar, ușor de citit pe
-                  telefon.
-                </div>
-                <div class="ro">
-                  Dacă vrei, după asta îți pot face și o versiune mai premium,
-                  cu poze, pentru același meniu.
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="peste">
-        <div class="section-title">
-          <h2>Fisch / Pește</h2>
-          <span>Lejer</span>
-        </div>
-        <div class="grid">
-          <article class="card">
-            <div class="card-head"><h3>Pește</h3></div>
-            <div class="menu-list">
-              <div class="item">
-                <div class="topline">
-                  <div class="de">Fisch-Saramura (rumänische Spezialität)</div>
-                  <div class="price">25,90 €</div>
-                </div>
-                <div class="sub">
-                  mit gegrilltem Gemüse, Polenta und Knoblauchsauce
-                </div>
-                <div class="ro">
-                  Saramură de pește cu legume coapte, mămăliguță și mujdei (D)
+                <div class="dish-ro">
+                  Pește prăjit cu mămăligă și mujdei (A,D)
                 </div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Gegrillter Lachs</div>
+                  <div class="dish-name">
+                    Gegrillter Lachs mit Rosmarinkartoffeln
+                  </div>
                   <div class="price">22,90 €</div>
                 </div>
-                <div class="sub">mit Salzkartoffeln und Gemüse</div>
-                <div class="ro">
-                  Somon la grătar cu cartofi natur și legume (D)
+                <div class="dish-ro">
+                  Somon la grătar cu cartofi cu rozmarin (D)
                 </div>
-              </div>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-head"><h3>Sosuri</h3></div>
-            <div class="menu-list">
-              <div class="item">
-                <div class="topline">
-                  <div class="de">
-                    Knoblauchcreme / Knoblauchsauce (traditionell)
-                  </div>
-                  <div class="price">2,50 €</div>
-                </div>
-                <div class="ro">Cremă de usturoi / Mujdei</div>
-              </div>
-              <div class="item">
-                <div class="topline">
-                  <div class="de">Ketchup / Mayonnaise / Senf</div>
-                  <div class="price">1,00 €</div>
-                </div>
-                <div class="ro">Ketchup / Maioneză / Muștar</div>
               </div>
             </div>
           </article>
         </div>
       </section>
 
+      <!-- ══════════ GARNITURI ══════════ -->
       <section class="section" id="garnituri">
-        <div class="section-title">
-          <h2>Beilagen / Garnituri</h2>
-          <span>Completează masa</span>
+        <div class="section-header">
+          <span class="section-label">Beilagen</span>
+          <h2 class="section-title">Garnituri</h2>
+          <div class="section-rule"><span>✦</span></div>
         </div>
         <div class="grid">
           <article class="card">
@@ -912,46 +1339,48 @@
             <div class="menu-list">
               <div class="item">
                 <div class="topline">
-                  <div class="de">Pommes frites</div>
+                  <div class="dish-name">Pommes frites</div>
                   <div class="price">4,90 €</div>
                 </div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Frisch frittierte Kartoffeln</div>
+                  <div class="dish-name">Frisch frittierte Kartoffeln</div>
                   <div class="price">5,90 €</div>
                 </div>
-                <div class="ro">Cartofi prăjiți</div>
+                <div class="dish-ro">Cartofi prăjiți</div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Bratkartoffeln</div>
-                  <div class="price">6,90 €</div>
-                </div>
-                <div class="ro">
-                  Cartofi prăjiți în tigaie, cu ceapă și bacon
-                </div>
-              </div>
-              <div class="item">
-                <div class="topline">
-                  <div class="de">Salzkartoffeln</div>
-                  <div class="price">4,90 €</div>
-                </div>
-                <div class="ro">Cartofi natur</div>
-              </div>
-              <div class="item">
-                <div class="topline">
-                  <div class="de">Kartoffelpüree</div>
-                  <div class="price">5,90 €</div>
-                </div>
-                <div class="ro">Piure de cartofi (G)</div>
-              </div>
-              <div class="item">
-                <div class="topline">
-                  <div class="de">Kartoffeln mit Parmesan und Knoblauch</div>
+                  <div class="dish-name">Rosmarinkartoffeln</div>
                   <div class="price">7,90 €</div>
                 </div>
-                <div class="ro">Cartofi cu parmezan și usturoi (G)</div>
+                <div class="dish-ro">Cartofi cu rozmarin și usturoi</div>
+              </div>
+              <div class="item">
+                <div class="topline">
+                  <div class="dish-name">Salzkartoffeln</div>
+                  <div class="price">4,90 €</div>
+                </div>
+                <div class="dish-ro">Cartofi natur</div>
+              </div>
+              <div class="item">
+                <div class="topline">
+                  <div class="dish-name">Kartoffelpüree</div>
+                  <div class="price">5,90 €</div>
+                </div>
+                <div class="dish-ro">Piure de cartofi (G)</div>
+              </div>
+              <div class="item">
+                <div class="topline">
+                  <div class="dish-name">
+                    Kartoffeln „Casa Rustica" (mit Parmesan und Knoblauch)
+                  </div>
+                  <div class="price">7,90 €</div>
+                </div>
+                <div class="dish-ro">
+                  Cartofi „Casa Rustica" cu parmezan și usturoi (G)
+                </div>
               </div>
             </div>
           </article>
@@ -960,160 +1389,91 @@
             <div class="menu-list">
               <div class="item">
                 <div class="topline">
-                  <div class="de">Überbackene Kartoffeln aus dem Ofen</div>
-                  <div class="price">7,90 €</div>
-                </div>
-                <div class="ro">Cartofi la cuptor gratinați (G)</div>
-              </div>
-              <div class="item">
-                <div class="topline">
-                  <div class="de">Serbischer Reis</div>
+                  <div class="dish-name">Serbischer Reis</div>
                   <div class="price">5,90 €</div>
                 </div>
-                <div class="ro">Orez sârbesc</div>
+                <div class="dish-ro">Orez sârbesc</div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Gegrilltes Gemüse</div>
-                  <div class="price">9,90 €</div>
+                  <div class="dish-name">Gegrilltes Gemüse</div>
+                  <div class="price">12,90 €</div>
                 </div>
-                <div class="ro">Legume la grătar</div>
+                <div class="dish-ro">Legume la grătar</div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Weiße Pilzsauce</div>
+                  <div class="dish-name">Weiße Pilzsauce</div>
                   <div class="price">6,90 €</div>
                 </div>
-                <div class="ro">Sos alb de ciuperci</div>
+                <div class="dish-ro">Sos alb de ciuperci (G)</div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Polenta</div>
+                  <div class="dish-name">Polenta</div>
                   <div class="price">4,90 €</div>
                 </div>
-                <div class="ro">Mămăligă</div>
+                <div class="dish-ro">Mămăligă</div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Geschmortes Weißkraut mit Polenta</div>
+                  <div class="dish-name">Geschmortes Weißkraut mit Polenta</div>
                   <div class="price">12,90 €</div>
                 </div>
-                <div class="ro">Varză călită cu mămăliguță</div>
+                <div class="dish-ro">Varză călită cu mămăliguță</div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Bohneneintopf mit eingelegtem Gemüse</div>
+                  <div class="dish-name">
+                    Bohneneintopf mit eingelegtem Gemüse
+                  </div>
                   <div class="price">12,90 €</div>
                 </div>
-                <div class="ro">Iahnie de fasole cu murături</div>
+                <div class="dish-ro">Iahnie de fasole cu murături</div>
               </div>
             </div>
           </article>
         </div>
       </section>
 
-      <section class="section" id="pizza-paste">
-        <div class="section-title">
-          <h2>Pizza / Pasta / Paste</h2>
-          <span>Mai casual</span>
-        </div>
-        <div class="grid">
-          <article class="card">
-            <div class="card-head"><h3>Pizza</h3></div>
-            <div class="menu-list">
-              <div class="item">
-                <div class="topline">
-                  <div class="de">Pizza Margherita</div>
-                  <div class="price">10,00 €</div>
-                </div>
-                <div class="ro">Pizza Margherita (A,G)</div>
-              </div>
-              <div class="item">
-                <div class="topline">
-                  <div class="de">Pizza Rustica (rumänische Art)</div>
-                  <div class="price">14,90 €</div>
-                </div>
-                <div class="sub">
-                  mit Würstchen, Zwiebeln, Champignons, Paprika und Ei
-                </div>
-                <div class="ro">Pizza rustica (românească) (A,G)</div>
-                <div class="sub">(cârnați, ceapă, ciuperci, ardei, ou)</div>
-              </div>
-              <div class="item">
-                <div class="topline">
-                  <div class="de">Vegetarische Pizza</div>
-                  <div class="price">13,90 €</div>
-                </div>
-                <div class="ro">Pizza vegetariană (A,G)</div>
-              </div>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-head"><h3>Paste</h3></div>
-            <div class="menu-list">
-              <div class="item">
-                <div class="topline">
-                  <div class="de">Al forno</div>
-                  <div class="price">14,90 €</div>
-                </div>
-                <div class="ro">Penne al forno (A,G)</div>
-              </div>
-              <div class="item">
-                <div class="topline">
-                  <div class="de">Napoli</div>
-                  <div class="price">10,90 €</div>
-                </div>
-                <div class="ro">Spaghetti Napoli (A)</div>
-              </div>
-              <div class="item">
-                <div class="topline">
-                  <div class="de">Kinder Pasta</div>
-                  <div class="price">9,90 €</div>
-                </div>
-                <div class="sub">(für Kinder geeignet)</div>
-                <div class="ro">Paste pentru copii (A,G)</div>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
+      <!-- ══════════ SALATE ══════════ -->
       <section class="section" id="salate">
-        <div class="section-title">
-          <h2>Salate / Salate</h2>
-          <span>Fresh</span>
+        <div class="section-header">
+          <span class="section-label">Salate</span>
+          <h2 class="section-title">Salate <em>Proaspete</em></h2>
+          <div class="section-rule"><span>✦</span></div>
         </div>
         <div class="grid">
           <article class="card">
-            <div class="card-head"><h3>Salate</h3></div>
+            <div class="card-head"><h3>Salate simple</h3></div>
             <div class="menu-list">
               <div class="item">
                 <div class="topline">
-                  <div class="de">Gemischter grüner Salat</div>
+                  <div class="dish-name">Gemischter grüner Salat</div>
                   <div class="price">4,50 €</div>
                 </div>
-                <div class="ro">Salată verde asortată</div>
+                <div class="dish-ro">Salată verde asortată</div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Krautsalat</div>
+                  <div class="dish-name">Krautsalat</div>
                   <div class="price">5,90 €</div>
                 </div>
-                <div class="ro">Salată de varză</div>
+                <div class="dish-ro">Salată de varză</div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Gemischter Salat</div>
+                  <div class="dish-name">Gemischter Salat</div>
                   <div class="price">6,90 €</div>
                 </div>
-                <div class="ro">Salată mixtă</div>
+                <div class="dish-ro">Salată mixtă</div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Gemischte eingelegte Gemüse</div>
+                  <div class="dish-name">Gemischte eingelegte Gemüse</div>
                   <div class="price">6,90 €</div>
                 </div>
-                <div class="ro">Murături asortate</div>
+                <div class="dish-ro">Murături asortate</div>
               </div>
             </div>
           </article>
@@ -1122,41 +1482,36 @@
             <div class="menu-list">
               <div class="item">
                 <div class="topline">
-                  <div class="de">Gegrillte Paprikasalat</div>
+                  <div class="dish-name">Gegrillte Paprikasalat</div>
                   <div class="price">8,90 €</div>
                 </div>
-                <div class="ro">Salată de ardei copți</div>
+                <div class="dish-ro">Salată de ardei copți</div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Tomatensalat mit Käse</div>
+                  <div class="dish-name">Tomatensalat mit Käse</div>
                   <div class="price">9,90 €</div>
                 </div>
-                <div class="ro">Salată de roșii cu brânză (FETA) (G)</div>
+                <div class="dish-ro">Salată de roșii cu brânză (FETA) (G)</div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Fitness-Salat mit Hähnchenbrust</div>
-                  <div class="price">14,90 €</div>
+                  <div class="dish-name">Fitness-Salat mit Hähnchenbrust</div>
+                  <div class="price">15,90 €</div>
                 </div>
-                <div class="ro">Salată fitness cu piept de pui (G)</div>
-              </div>
-              <div class="item">
-                <div class="topline">
-                  <div class="de">Thunfischsalat „Casa Rustica“</div>
-                  <div class="price">14,90 €</div>
-                </div>
-                <div class="ro">Salată cu ton Casa Rustica (A,C,D,G)</div>
+                <div class="dish-ro">Salată fitness cu piept de pui (G)</div>
               </div>
             </div>
           </article>
         </div>
       </section>
 
+      <!-- ══════════ DESERT ══════════ -->
       <section class="section" id="desert">
-        <div class="section-title">
-          <h2>Nachspeisen / Desert</h2>
-          <span>Final bun</span>
+        <div class="section-header">
+          <span class="section-label">Nachspeisen</span>
+          <h2 class="section-title">Deserturi</h2>
+          <div class="section-rule"><span>✦</span></div>
         </div>
         <div class="grid">
           <article class="card">
@@ -1164,192 +1519,246 @@
             <div class="menu-list">
               <div class="item">
                 <div class="topline">
-                  <div class="de">
-                    Papanași (rumänische Spezialität) (A,C,G)
-                  </div>
+                  <div class="dish-name">Papanași (rumänische Spezialität)</div>
+                  <div class="price">11,90 €</div>
+                </div>
+                <div class="dish-ro">Papanași (A,C,G)</div>
+              </div>
+              <div class="item">
+                <div class="topline">
+                  <div class="dish-name">Pfannkuchen mit Nutella</div>
                   <div class="price">10,90 €</div>
                 </div>
-                <div class="ro">Papanași (A,C,G)</div>
+                <div class="dish-ro">Clătite cu Nutella (A,C,G,H)</div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Pfannkuchen mit Nutella (A,C,G)</div>
-                  <div class="price">9,90 €</div>
+                  <div class="dish-name">Pfannkuchen mit Marmelade</div>
+                  <div class="price">10,90 €</div>
                 </div>
-                <div class="ro">Clătite cu Nutella (A,C,G)</div>
+                <div class="dish-ro">Clătite cu dulceață (A,C,G)</div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Pfannkuchen mit Marmelade (A,C,G)</div>
-                  <div class="price">9,90 €</div>
-                </div>
-                <div class="ro">Clătite cu dulceață (A,C,G)</div>
-              </div>
-              <div class="item">
-                <div class="topline">
-                  <div class="de">Kuchen des Tages (A,C,G)</div>
+                  <div class="dish-name">Kuchen des Tages</div>
                   <div class="price">6,90 €</div>
                 </div>
-                <div class="ro">Prăjitura zilei (A,C,G)</div>
+                <div class="dish-ro">Prăjitura zilei (A,C,G)</div>
               </div>
             </div>
           </article>
-          <article class="card">
-            <div class="card-head"><h3>Dulce & simplu</h3></div>
-            <div class="menu-list">
-              <div class="item" style="border-bottom: 0">
-                <div class="de">Papanași, clătite și desertul zilei.</div>
-                <div class="ro">
-                  Formatul este gândit pentru citire rapidă direct din telefon.
-                </div>
+          <article
+            class="card"
+            style="
+              background: linear-gradient(135deg, #fff8ec, #f5e9d0);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              min-height: 180px;
+            "
+          >
+            <div style="text-align: center; padding: 32px 24px">
+              <div
+                style="
+                  font-family: var(--font-display);
+                  font-size: 36px;
+                  color: var(--gold-light);
+                  margin-bottom: 10px;
+                  line-height: 1;
+                "
+              >
+                ✦
+              </div>
+              <div
+                style="
+                  font-family: var(--font-accent);
+                  font-style: italic;
+                  font-size: 20px;
+                  color: var(--ink-soft);
+                "
+              >
+                Poftă bună!
+              </div>
+              <div
+                style="
+                  font-family: var(--font-accent);
+                  font-size: 14px;
+                  letter-spacing: 0.12em;
+                  color: var(--ink-muted);
+                  margin-top: 6px;
+                "
+              >
+                Guten Appetit!
               </div>
             </div>
           </article>
         </div>
       </section>
 
+      <!-- ══════════ BĂUTURI ══════════ -->
       <section class="section" id="bauturi">
-        <div class="section-title">
-          <h2>Băuturi</h2>
-          <span>Toată selecția</span>
+        <div class="section-header">
+          <span class="section-label">Getränke</span>
+          <h2 class="section-title">Băuturi</h2>
+          <div class="section-rule"><span>✦</span></div>
         </div>
+
+        <!-- Bere -->
         <div class="grid">
           <article class="card">
             <div class="card-head"><h3>Bier / Bere</h3></div>
             <div class="menu-list">
-              <div class="item"><div class="de">Vom Fass</div></div>
+              <div class="item sub-header">
+                <div class="dish-name">Vom Fass · La halba</div>
+              </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Spaten Hell 0,25 l</div>
+                  <div class="dish-name">Spaten Hell 0,25 l</div>
                   <div class="price">3,20 €</div>
                 </div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Spaten Hell 0,5 l</div>
-                  <div class="price">4,20 €</div>
+                  <div class="dish-name">Spaten Hell 0,5 l</div>
+                  <div class="price">4,50 €</div>
                 </div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Radler</div>
-                  <div class="price">4,20 €</div>
+                  <div class="dish-name">Radler</div>
+                  <div class="price">4,50 €</div>
                 </div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Franziskaner Weißbier 0,25 l</div>
+                  <div class="dish-name">Franziskaner Weißbier 0,25 l</div>
                   <div class="price">3,50 €</div>
                 </div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Franziskaner Weißbier 0,5 l</div>
+                  <div class="dish-name">Franziskaner Weißbier 0,5 l</div>
                   <div class="price">4,80 €</div>
                 </div>
               </div>
-              <div class="item"><div class="de">Flasche</div></div>
+              <div class="item sub-header">
+                <div class="dish-name">Flasche · La sticlă</div>
+              </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Beck’s Pils 0,33 l</div>
+                  <div class="dish-name">Beck's Pils 0,33 l</div>
                   <div class="price">4,40 €</div>
                 </div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Corona Extra 0,33 l</div>
+                  <div class="dish-name">Corona Extra 0,33 l</div>
                   <div class="price">4,90 €</div>
                 </div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Franziskaner Dunkel Weißbier 0,5 l</div>
+                  <div class="dish-name">
+                    Franziskaner Dunkel Weißbier 0,5 l
+                  </div>
                   <div class="price">4,80 €</div>
                 </div>
               </div>
-              <div class="item"><div class="de">Alkoholfrei</div></div>
+              <div class="item sub-header">
+                <div class="dish-name">Alkoholfrei · Fără alcool</div>
+              </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Franziskaner Weißbier alkoholfrei 0,5 l</div>
+                  <div class="dish-name">
+                    Franziskaner Weißbier alkoholfrei 0,5 l
+                  </div>
                   <div class="price">4,80 €</div>
                 </div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Spaten Hell alkoholfrei 0,5 l</div>
+                  <div class="dish-name">Spaten Hell alkoholfrei 0,5 l</div>
                   <div class="price">4,20 €</div>
                 </div>
               </div>
             </div>
           </article>
           <article class="card">
-            <div class="card-head"><h3>Softdrinks & apă</h3></div>
+            <div class="card-head">
+              <h3>Erfrischungsgetränke · Apă · Limonada</h3>
+            </div>
             <div class="menu-list">
+              <div class="item sub-header">
+                <div class="dish-name">Erfrischungsgetränke</div>
+              </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">
+                  <div class="dish-name">
                     Coca-Cola / Zero / Fanta / Sprite / Mezzo Mix 0,33 l
                   </div>
                   <div class="price">3,90 €</div>
                 </div>
               </div>
-              <div class="item">
-                <div class="topline">
-                  <div class="de">Adelholzener Mineralwasser 0,7 l</div>
-                  <div class="price">6,50 €</div>
-                </div>
+              <div class="item sub-header">
+                <div class="dish-name">Wasser · Apă</div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Tafelwasser vom Fass 0,25 l</div>
-                  <div class="price">2,50 €</div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="topline">
-                  <div class="de">Tafelwasser vom Fass 0,5 l</div>
-                  <div class="price">3,50 €</div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="topline">
-                  <div class="de">Zitronenlimonade 0,5 l</div>
+                  <div class="dish-name">Adelholzener Mineralwasser 0,7 l</div>
                   <div class="price">6,90 €</div>
                 </div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Zitronenlimonade 1,0 l</div>
+                  <div class="dish-name">Tafelwasser vom Fass 0,25 l</div>
+                  <div class="price">2,50 €</div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="topline">
+                  <div class="dish-name">Tafelwasser vom Fass 0,5 l</div>
+                  <div class="price">3,90 €</div>
+                </div>
+              </div>
+              <div class="item sub-header">
+                <div class="dish-name">Hausgemachte Limonade</div>
+              </div>
+              <div class="item">
+                <div class="topline">
+                  <div class="dish-name">Zitronenlimonade 0,5 l</div>
+                  <div class="price">6,90 €</div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="topline">
+                  <div class="dish-name">Zitronenlimonade 1,0 l</div>
                   <div class="price">11,90 €</div>
                 </div>
               </div>
-              <div class="item">
-                <div class="topline">
-                  <div class="de">Orangensaft 0,3 l</div>
-                  <div class="price">5,90 €</div>
-                </div>
+              <div class="item sub-header">
+                <div class="dish-name">Säfte · Schorlen · Energy</div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">
+                  <div class="dish-name">
                     Apfel / Orange / Johannisbeere / Maracuja 0,3 l
                   </div>
                   <div class="price">3,90 €</div>
                 </div>
-                <div class="ro">Säfte</div>
+                <div class="dish-ro">Sucuri</div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">
+                  <div class="dish-name">
                     Apfel / Orange / Johannisbeere / Maracuja 0,4 l
                   </div>
-                  <div class="price">3,90 €</div>
+                  <div class="price">4,50 €</div>
                 </div>
-                <div class="ro">Schorlen</div>
+                <div class="dish-ro">Schorlen</div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Red Bull 0,25 l</div>
+                  <div class="dish-name">Red Bull 0,25 l</div>
                   <div class="price">4,50 €</div>
                 </div>
               </div>
@@ -1357,99 +1766,100 @@
           </article>
         </div>
 
-        <div class="grid" style="margin-top: 18px">
+        <!-- Vin -->
+        <div class="grid" style="margin-top: 20px">
           <article class="card">
             <div class="card-head"><h3>Wein / Vin</h3></div>
             <div class="menu-list">
+              <div class="item sub-header">
+                <div class="dish-name">Weinschorle</div>
+              </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Weißweinschorle 0,4 l</div>
-                  <div class="price">6,50 €</div>
+                  <div class="dish-name">Weißweinschorle 0,5 l</div>
+                  <div class="price">7,90 €</div>
                 </div>
               </div>
               <div class="item">
-                <div class="de">Weißwein (0,2 l / 0,5 l)</div>
-                <div class="sub">
-                  Hauswein — 5,50 € / 10,90 €<br />Pinot Grigio — 6,50 € / 12,50
+                <div class="dish-name">Weißwein (0,2 l / 0,5 l)</div>
+                <div class="dish-sub">
+                  Hauswein — 6,50 € / 11,90 €<br />Pinot Grigio — 6,50 € / 12,50
                   €<br />Chardonnay — 6,50 € / 12,50 €
                 </div>
               </div>
               <div class="item">
-                <div class="de">Rotwein (0,2 l / 0,5 l)</div>
-                <div class="sub">
-                  Hauswein — 5,50 € / 10,90 €<br />Primitivo — 6,90 € / 13,50
+                <div class="dish-name">Rotwein (0,2 l / 0,5 l)</div>
+                <div class="dish-sub">
+                  Hauswein — 6,90 € / 15,90 €<br />Primitivo — 6,90 € / 13,50
                   €<br />Chianti — 6,90 € / 13,50 €
                 </div>
               </div>
               <div class="item">
-                <div class="de">Roséwein (0,2 l / 0,5 l)</div>
-                <div class="sub">Hauswein — 5,50 € / 10,90 €</div>
+                <div class="dish-name">Roséwein (0,2 l / 0,5 l)</div>
+                <div class="dish-sub">Hauswein — 6,50 € / 15,90 €</div>
               </div>
               <div class="item">
-                <div class="de">Flaschenweine</div>
-                <div class="sub">
+                <div class="dish-name">Flaschenweine</div>
+                <div class="dish-sub">
                   Hauswein (Karaffe) — 28,00 €<br />Scaia — 35,00 €<br />Lugana
                   — 39,00 €<br />Cà dei Frati — 45,00 €<br />Primitivo — 35,00
                   €<br />Primitivo di Manduria — 45,00 €<br />Amarone — 79,00 €
                 </div>
               </div>
               <div class="item">
-                <div class="de">Prosecco</div>
-                <div class="sub">
-                  Prosecco 0,2 l — 5,50 €<br />Prosecco Flasche — 25,00 €
+                <div class="dish-name">Prosecco</div>
+                <div class="dish-sub">
+                  Prosecco 0,1 l — 5,50 €<br />Prosecco Flasche — 35,00 €
                 </div>
               </div>
             </div>
           </article>
           <article class="card">
             <div class="card-head">
-              <h3>Cocktails / Longdrinks / Spirituosen</h3>
+              <h3>Cocktails · Longdrinks · Spirituosen</h3>
             </div>
             <div class="menu-list">
               <div class="item">
-                <div class="de">Aperitifs & Cocktails</div>
-                <div class="sub">
-                  Aperol Spritz — 6,90 €<br />Hugo — 6,90 €<br />Campari Orange
-                  — 7,90 €<br />Martini Bianco — 6,90 €<br />Mojito — 7,90 €<br />Martini
-                  Cocktail — 7,90 €
+                <div class="dish-name">Aperitifs & Cocktails</div>
+                <div class="dish-sub">
+                  Aperol Spritz — 8,90 €<br />Hugo — 8,90 €<br />Campari Orange
+                  — 8,90 €<br />Martini Bianco — 8,90 €<br />Mojito — 8,90 €<br />Martini
+                  Cocktail — 8,90 €
                 </div>
               </div>
               <div class="item">
-                <div class="de">Longdrinks</div>
-                <div class="sub">
-                  Vodka Bull — 8,90 €<br />Vodka Lemon — 7,90 €<br />Gin Tonic —
-                  7,90 €<br />Jack Daniel’s Cola — 8,90 €
+                <div class="dish-name">Longdrinks</div>
+                <div class="dish-sub">
+                  Vodka Bull — 8,90 €<br />Vodka Lemon — 8,90 €<br />Gin Tonic —
+                  8,90 €<br />Jack Daniel's Cola — 8,90 €
                 </div>
               </div>
               <div class="item">
-                <div class="de">Spirituosen</div>
-                <div class="sub">
-                  Ramazzotti 2 cl / 4 cl — 2,80 € / 5,20 €<br />Jägermeister 2
-                  cl / 4 cl — 2,80 € / 5,20 €<br />Averna 2 cl / 4 cl — 2,80 € /
-                  5,20 €<br />Williams Birne 2 cl / 4 cl — 3,20 € / 5,90 €<br />Vodka
-                  / Gin 2 cl / 4 cl — 3,20 € / 5,90 €<br />Grey Goose 2 cl / 4
-                  cl — 5,00 € / 9,00 €<br />Jack Daniel’s 2 cl / 4 cl — 3,50 € /
-                  6,50 €<br />Johnnie Walker 2 cl / 4 cl — 3,50 € / 6,50 €<br />Chivas
-                  Regal 2 cl / 4 cl — 3,80 € / 7,20 €<br />Havana Club 7y 2 cl /
-                  4 cl — 3,80 € / 7,20 €<br />Metaxa 7★ 2 cl / 4 cl — 3,50 € /
-                  6,80 €<br />Hennessy 2 cl / 4 cl — 4,50 € / 8,50 €<br />Țuică
-                  de casă 2 cl / 4 cl — 3,50 € / 6,50 €
+                <div class="dish-name">Spirituosen</div>
+                <div class="dish-sub">
+                  Ramazzotti / Jägermeister / Averna 2/4 cl — 2,80 € / 5,20 €<br />Williams
+                  Birne / Vodka / Gin 2/4 cl — 3,20 € / 5,90 €<br />Grey Goose
+                  2/4 cl — 5,00 € / 9,00 €<br />Jack Daniel's / Johnnie Walker
+                  2/4 cl — 3,50 € / 6,50 €<br />Chivas Regal / Havana Club 7y
+                  2/4 cl — 3,80 € / 7,20 €<br />Metaxa 7★ 2/4 cl — 3,50 € / 6,80
+                  €<br />Hennessy 2/4 cl — 4,50 € / 8,50 €<br />Țuică de casă
+                  2/4 cl — 3,50 € / 6,50 €
                 </div>
               </div>
               <div class="item">
-                <div class="de">Liköre</div>
-                <div class="sub">
-                  Baileys / Kirschlikör / Limoncello 2 cl / 4 cl — 3,20 € / 5,90
-                  €<br />Amaretto 2 cl / 4 cl — 2,80 € / 5,20 €
+                <div class="dish-name">Liköre</div>
+                <div class="dish-sub">
+                  Baileys / Kirschlikör / Limoncello 2/4 cl — 3,20 € / 5,90 €<br />Amaretto
+                  2/4 cl — 2,80 € / 5,20 €
                 </div>
               </div>
               <div class="item">
-                <div class="de">Premium Flaschen</div>
-                <div class="sub">
-                  Grey Goose 0,7 l — 120 €<br />Jack Daniel’s 0,7 l — 79 €<br />Chivas
+                <div class="dish-name">Premium Flaschen</div>
+                <div class="dish-sub">
+                  Grey Goose 0,7 l — 120 €<br />Jack Daniel's 0,7 l — 79 €<br />Chivas
                   Regal 0,7 l — 100 €<br />Johnnie Walker Black 0,7 l — 100 €<br />Havana
                   Club 7y 0,7 l — 75 €<br />Metaxa 7★ 0,7 l — 85 €<br />Hennessy
-                  0,7 l — 120 €<br />Moët & Chandon Impérial — 120 €<br />Moët
+                  0,7 l — 120 €<br />Moët &amp; Chandon Impérial — 120 €<br />Moët
                   Rosé — 150 €<br />Moët Ice — 190 €
                 </div>
               </div>
@@ -1458,10 +1868,12 @@
         </div>
       </section>
 
+      <!-- ══════════ CAFEA ══════════ -->
       <section class="section" id="cafea">
-        <div class="section-title">
-          <h2>Kaffee & Heißgetränke</h2>
-          <span>Cald sau rece</span>
+        <div class="section-header">
+          <span class="section-label">Kaffee & Heißgetränke</span>
+          <h2 class="section-title">Cafea <em>& Ceai</em></h2>
+          <div class="section-rule"><span>✦</span></div>
         </div>
         <div class="grid">
           <article class="card">
@@ -1469,56 +1881,56 @@
             <div class="menu-list">
               <div class="item">
                 <div class="topline">
-                  <div class="de">Espresso</div>
+                  <div class="dish-name">Espresso</div>
                   <div class="price">2,50 €</div>
                 </div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Espresso Macchiato</div>
+                  <div class="dish-name">Espresso Macchiato</div>
                   <div class="price">3,00 €</div>
                 </div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Doppelter Espresso</div>
-                  <div class="price">3,80 €</div>
+                  <div class="dish-name">Doppelter Espresso</div>
+                  <div class="price">4,80 €</div>
                 </div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Kaffee</div>
-                  <div class="price">3,00 €</div>
+                  <div class="dish-name">Kaffee Creme</div>
+                  <div class="price">3,50 €</div>
                 </div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Cappuccino</div>
+                  <div class="dish-name">Cappuccino</div>
                   <div class="price">4,50 €</div>
                 </div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Latte Macchiato</div>
+                  <div class="dish-name">Latte Macchiato</div>
                   <div class="price">4,90 €</div>
                 </div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Milchkaffee</div>
-                  <div class="price">4,50 €</div>
+                  <div class="dish-name">Milchkaffee</div>
+                  <div class="price">4,90 €</div>
                 </div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Heiße Schokolade</div>
-                  <div class="price">4,50 €</div>
+                  <div class="dish-name">Heiße Schokolade</div>
+                  <div class="price">4,90 €</div>
                 </div>
               </div>
               <div class="item">
                 <div class="topline">
-                  <div class="de">Tee (verschiedene Sorten)</div>
-                  <div class="price">3,00 €</div>
+                  <div class="dish-name">Tee (verschiedene Sorten)</div>
+                  <div class="price">2,90 €</div>
                 </div>
               </div>
             </div>
@@ -1527,14 +1939,14 @@
             <div class="card-head"><h3>Rece & specials</h3></div>
             <div class="menu-list">
               <div class="item">
-                <div class="de">Eiskaffee & Frappé</div>
-                <div class="sub">
+                <div class="dish-name">Eiskaffee & Frappé</div>
+                <div class="dish-sub">
                   Eiskaffee — 6,90 €<br />Café Frappé — 6,90 €
                 </div>
               </div>
               <div class="item">
-                <div class="de">Kaffee Specials</div>
-                <div class="sub">
+                <div class="dish-name">Kaffee Specials</div>
+                <div class="dish-sub">
                   Kaffee mit Baileys — 6,90 €<br />Kaffee mit Sambuca — 6,90 €
                 </div>
               </div>
@@ -1543,20 +1955,186 @@
         </div>
       </section>
 
+      <!-- ══════════ ALERGENI ══════════ -->
+      <section class="section">
+        <div class="allergen-section">
+          <div class="allergen-head">
+            <h3>Allergene & Aditivi / Alergeni & Aditivi</h3>
+          </div>
+          <div class="allergen-body">
+            <div class="allergen-cols">
+              <!-- Alergeni -->
+              <div>
+                <div class="allergen-group">
+                  <div class="allergen-group-title">Allergene / Alergeni</div>
+                  <div class="allergen-item">
+                    <span class="allergen-code">A</span
+                    ><span class="allergen-desc"
+                      >Glutenhaltiges Getreide · Gluten</span
+                    >
+                  </div>
+                  <div class="allergen-item">
+                    <span class="allergen-code">B</span
+                    ><span class="allergen-desc">Krebstiere · Crustacee</span>
+                  </div>
+                  <div class="allergen-item">
+                    <span class="allergen-code">C</span
+                    ><span class="allergen-desc">Eier · Ouă</span>
+                  </div>
+                  <div class="allergen-item">
+                    <span class="allergen-code">D</span
+                    ><span class="allergen-desc">Fisch · Pește</span>
+                  </div>
+                  <div class="allergen-item">
+                    <span class="allergen-code">E</span
+                    ><span class="allergen-desc">Erdnüsse · Arahide</span>
+                  </div>
+                  <div class="allergen-item">
+                    <span class="allergen-code">F</span
+                    ><span class="allergen-desc">Soja · Soia</span>
+                  </div>
+                  <div class="allergen-item">
+                    <span class="allergen-code">G</span
+                    ><span class="allergen-desc"
+                      >Milch (inkl. Laktose) · Lapte</span
+                    >
+                  </div>
+                  <div class="allergen-item">
+                    <span class="allergen-code">H</span
+                    ><span class="allergen-desc">Schalenfrüchte · Nuci</span>
+                  </div>
+                  <div class="allergen-item">
+                    <span class="allergen-code">I</span
+                    ><span class="allergen-desc">Sellerie · Țelină</span>
+                  </div>
+                  <div class="allergen-item">
+                    <span class="allergen-code">J</span
+                    ><span class="allergen-desc">Senf · Muștar</span>
+                  </div>
+                  <div class="allergen-item">
+                    <span class="allergen-code">K</span
+                    ><span class="allergen-desc">Sesam · Susan</span>
+                  </div>
+                  <div class="allergen-item">
+                    <span class="allergen-code">L</span
+                    ><span class="allergen-desc"
+                      >Schwefeldioxid &amp; Sulfite</span
+                    >
+                  </div>
+                  <div class="allergen-item">
+                    <span class="allergen-code">M</span
+                    ><span class="allergen-desc">Lupinen</span>
+                  </div>
+                  <div class="allergen-item">
+                    <span class="allergen-code">N</span
+                    ><span class="allergen-desc">Weichtiere · Moluște</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Aditivi -->
+              <div>
+                <div class="allergen-group">
+                  <div class="allergen-group-title">Zusatzstoffe / Aditivi</div>
+                  <div class="allergen-item">
+                    <span class="allergen-code">1</span
+                    ><span class="allergen-desc"
+                      >mit Konservierungsstoffen</span
+                    >
+                  </div>
+                  <div class="allergen-item">
+                    <span class="allergen-code">2</span
+                    ><span class="allergen-desc">mit Farbstoffen</span>
+                  </div>
+                  <div class="allergen-item">
+                    <span class="allergen-code">3</span
+                    ><span class="allergen-desc"
+                      >mit Antioxidationsmitteln</span
+                    >
+                  </div>
+                  <div class="allergen-item">
+                    <span class="allergen-code">4</span
+                    ><span class="allergen-desc"
+                      >mit Geschmacksverstärkern</span
+                    >
+                  </div>
+                  <div class="allergen-item">
+                    <span class="allergen-code">5</span
+                    ><span class="allergen-desc">geschwefelt</span>
+                  </div>
+                  <div class="allergen-item">
+                    <span class="allergen-code">6</span
+                    ><span class="allergen-desc">geschwärzt</span>
+                  </div>
+                  <div class="allergen-item">
+                    <span class="allergen-code">7</span
+                    ><span class="allergen-desc">mit Phosphat</span>
+                  </div>
+                  <div class="allergen-item">
+                    <span class="allergen-code">8</span
+                    ><span class="allergen-desc">mit Milcheiweiß</span>
+                  </div>
+                  <div class="allergen-item">
+                    <span class="allergen-code">9</span
+                    ><span class="allergen-desc">koffeinhaltig</span>
+                  </div>
+                  <div class="allergen-item">
+                    <span class="allergen-code">10</span
+                    ><span class="allergen-desc">chininhaltig</span>
+                  </div>
+                  <div class="allergen-item">
+                    <span class="allergen-code">11</span
+                    ><span class="allergen-desc">mit Süßungsmitteln</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="allergen-notice">
+              <p>
+                ⚠ Alle Speisen können Spuren von Allergenen und Zusatzstoffen
+                enthalten. Wenn Sie Fragen zu Inhaltsstoffen oder Allergenen
+                haben, sprechen Sie bitte unser Personal an.
+              </p>
+              <p>
+                ⚠ Toate preparatele pot conține urme de alergeni și aditivi.
+                Pentru informații detaliate despre ingrediente, vă rugăm să
+                întrebați personalul nostru.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════ NOTICE ══════════ -->
       <section class="section">
         <div class="notice">
-          <h3>Scanează și vezi meniul complet</h3>
+          <div
+            style="
+              font-family: var(--font-display);
+              font-size: 28px;
+              color: var(--gold-light);
+              margin-bottom: 12px;
+            "
+          >
+            ✦
+          </div>
+          <h3>Mulțumim pentru vizită</h3>
           <p>
-            Această pagină este deja bună pentru GitHub Pages. După ce o
-            publici, linkul final îl transformi într-un cod QR și îl pui pe
-            masă.
+            Toate preparatele sunt gătite cu ingrediente proaspete. Personalul
+            nostru vă stă la dispoziție pentru orice recomandare sau cerință
+            specială.
           </p>
         </div>
       </section>
     </main>
 
     <footer>
-      <div class="container">© Casa Rustica · Meniu online</div>
+      <div class="container">
+        <div class="footer-logo">Casa Rustica</div>
+        <div class="footer-rule"></div>
+        <div class="footer-copy">
+          Schleißheimer Str. 61 · 85221 Dachau · Meniu online
+        </div>
+      </div>
     </footer>
   </body>
 </html>
